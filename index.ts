@@ -1,5 +1,6 @@
-import { static as eStatic, urlencoded } from 'express';
 import * as express from 'express';
+import 'express-async-errors';
+import { static as eStatic, urlencoded } from 'express';
 import * as methodOverride from 'method-override';
 import { engine } from 'express-handlebars';
 
@@ -20,3 +21,12 @@ app.engine(
   })
 );
 app.set('view engine', '.hbs');
+app.get('/', (req, res) => {
+  res.send('HELLO');
+});
+
+// app.use(handleError);
+
+app.listen(3000, 'localhost', () => {
+  console.log('`Server has started on ${http://localhost:3000');
+});
