@@ -27,10 +27,24 @@ us/en:
   -The Hall of Fame
   List of the best fighters
   -View planning / general view structure
-  -Records
-  -The logic of creating warriors
-  -The hall of fame logic
-  -Logic related to the battle arena
+
+  -Records:
+
+-- Database name: warrior_arena
+
+-Tabels:
+--warrior
+--- ID - UUID (warchar 36)
+--- Name - varchar (?) - unique!
+--- Strength - tinyint (2)
+--- Defense - tinyint (2)
+--- Toughness - tinyint (2)
+--- Agility - tinyint (2)
+--- Number of wins: default 0 - INT (11)
+
+-The logic of creating warriors
+-The hall of fame logic
+-Logic related to the battle arena
 
 V2:
 -Fight log: you can make a very nice version of this - by adding e.g. icons or other colors depending on the type of situation.
@@ -64,7 +78,20 @@ Ogólna stróktóra routerów - ścieżek - zaplanować ścieśki jakie sie poja
 -Sala Sław
 Lista najlepszych wojowników
 -Zaplanowanie widoków / ogólna struktóra widoków
--Rekordy
+
+-Rekordy:
+--Nazwa bazy danych: warriors_arena
+
+-Tabele:
+--warrior
+---ID - UUID (warchar 36)
+---Imie - varchar(?) - unikatowe!
+---Siła - tinyint(2)
+---Obrona - tinyint(2)
+---Wytrzymałość - tinyint(2)
+---Zwinność - tinyint(2)
+---Liczba zwycięstw: domyślnie 0 - INT(11)
+
 -Logika związana z tworzeniem wojowników
 -Logika związana z salą sław
 -Logika związana z areną walk

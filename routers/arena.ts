@@ -4,9 +4,9 @@ export const arenaRouter = Router();
 
 arenaRouter
   .get('/fight-form', (req, res) => {
-    res.send('Form fight');
+    res.render('arena/fight-form');
   })
 
   .post('/fight', (req, res) => {
-    res.send('fight warrior vs warrior');
+    res.render('arena/fight');
   });
