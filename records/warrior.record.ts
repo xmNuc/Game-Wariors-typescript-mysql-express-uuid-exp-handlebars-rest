@@ -1,4 +1,6 @@
 import { ValidationError } from '../utils/errors';
+import { v4 as uuid } from 'uuid';
+import { pool } from '../utils/db';
 
 export class WarriorRecord {
   // /**id is UUID*/
@@ -11,7 +13,7 @@ export class WarriorRecord {
   public readonly agility: number;
   public wins?: number;
 
-  constructor(obj: WarriorRecord) {
+  constructor(obj: Omit<WarriorRecord, 'insert' | 'update'>) {
     const { id, name, power, defence, stamina, agility, wins } = obj;
 
     const stats = [power, defence, stamina, agility];
@@ -28,20 +30,40 @@ export class WarriorRecord {
       );
     }
 
-    this.id = id;
+    this.id = id ?? uuid();
     this.name = name;
     this.power = power;
     this.stamina = stamina;
     this.defence = defence;
     this.agility = agility;
-    this.wins = wins;
+    this.wins = wins ?? 0;
   }
 
-  async insert() {}
+  async insert(): Promise<string> {
+    await pool.execute(
+      'INSERT INTO `warriors`(`id`,`name`,`power`,`defence`,`stamina`,`agility`,`wins`) VALUES{:id, :name, :power, :defence, :stamina, :agility, :wins}',
+      {
+        id: this.id,
+        name: this.name,
+        power: this.power,
+        defence: this.defence,
+        stamina: this.stamina,
+        agility: this.agility,
+        wins: this.wins,
+      }
+    );
+    return this.id;
+  }
 
-  async update() {}
+  async update(): Promise<void> {}
 
-  static async getOne(id: string) {}
-  static async listAll() {}
-  static async listTop(topCount: number) {}
+  static async getOne(id: string): Promise<WarriorRecord | null> {
+    return null;
+  }
+  static async listAll(): Promise<WarriorRecord[]> {
+    return [];
+  }
+  static async listTop(topCount: number): Promise<WarriorRecord[]> {
+    return [];
+  }
 }
