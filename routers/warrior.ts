@@ -10,10 +10,10 @@ warriorRouter
   })
 
   .post('/', async (req, res) => {
-    if (await WarriorRecord.isNameTaken(req.body.name)) {
-      throw new ValidationError(`Name ${req.body.name} is alredy in use`);
-    }
     const { name, power, defence, stamina, agility } = req.body;
+    if (await WarriorRecord.isNameTaken(name)) {
+      throw new ValidationError(`Name ${name} is alredy in use`);
+    }
 
     const warrior = new WarriorRecord({
       ...req.body,
@@ -23,7 +23,7 @@ warriorRouter
       agility: Number(agility),
     });
 
-    await warrior.insert();
+    const id = await warrior.insert();
 
-    res.render('warrior/warrior-added');
+    res.render('warrior/warrior-added', { id, name: warrior.name });
   });
