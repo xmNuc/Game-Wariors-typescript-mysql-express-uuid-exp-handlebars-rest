@@ -50,7 +50,7 @@ export class WarriorRecord {
 
   async insert(): Promise<string> {
     await pool.execute(
-      'INSERT INTO `warriors`(`id`,`name`,`power`,`defence`,`stamina`,`agility`,`wins`) VALUES{:id, :name, :power, :defence, :stamina, :agility, :wins}',
+      "INSERT INTO `warriors`(`id`,`name`,`power`,`defence`,`stamina`,`agility`,`wins`) VALUES(:id, :name, :power, :defence, :stamina, :agility, :wins)",
       {
         id: this.id,
         name: this.name,
@@ -74,7 +74,7 @@ export class WarriorRecord {
     const [results] = (await pool.execute(
       'SELECT * FROM `warriors` WHERE `id` = :id',
       {
-        id: id,
+        id,
       }
     )) as WarriorRecordResults;
     return results.length === 0 ? null : results[0];
@@ -97,4 +97,14 @@ export class WarriorRecord {
 
     return results.map((obj) => new WarriorRecord(obj));
   }
+  static async isNameTaken(name: string): Promise<boolean> {
+    const [results] = (await pool.execute(
+      'SELECT * FROM `warriors` WHERE `name` = :name',
+      {
+        name,
+      }
+    )) as WarriorRecordResults;
+    return results.length > 0;
+  }
 }
+

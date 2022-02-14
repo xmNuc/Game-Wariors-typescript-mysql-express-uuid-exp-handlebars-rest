@@ -9,6 +9,7 @@ import { arenaRouter } from './routers/arena';
 import { hallOfFameRouter } from './routers/hall-of-fame';
 import { WarriorRecord } from './records/warrior.record';
 import './utils/db';
+import { handleError } from './utils/errors';
 
 const app = express();
 
@@ -33,7 +34,7 @@ app.use('/warrior', warriorRouter);
 app.use('/arena', arenaRouter);
 app.use('/hall-of-fame', hallOfFameRouter);
 
-// app.use(handleError);
+app.use(handleError);
 
 app.listen(3000, 'localhost', () => {
   console.log('Server has started on http://localhost:3000');
