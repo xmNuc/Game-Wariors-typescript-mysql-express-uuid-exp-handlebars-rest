@@ -1,6 +1,9 @@
 import { ValidationError } from '../utils/errors';
 import { v4 as uuid } from 'uuid';
 import { pool } from '../utils/db';
+import { FieldPacket } from 'mysql2';
+
+type WarriorRecordResults = [WarriorRecord[], FieldPacket[]];
 
 export class WarriorRecord {
   // /**id is UUID*/
@@ -18,6 +21,12 @@ export class WarriorRecord {
 
     const stats = [power, defence, stamina, agility];
     const sum = stats.reduce((prev, curr) => prev + curr, 0);
+
+    for (const stat of stats) {
+      if (stat < 1) {
+        throw new ValidationError('Evry stat point have to be minimum 1.');
+      }
+    }
 
     if (sum !== 10) {
       throw new ValidationError(
@@ -55,15 +64,37 @@ export class WarriorRecord {
     return this.id;
   }
 
-  async update(): Promise<void> {}
+  async update(): Promise<void> {
+    await pool.execute('UPDATE `warriors` SET `wins` =:wins', {
+      wins: this.wins,
+    });
+  }
 
   static async getOne(id: string): Promise<WarriorRecord | null> {
-    return null;
+    const [results] = (await pool.execute(
+      'SELECT * FROM `warriors` WHERE `id` = :id',
+      {
+        id: id,
+      }
+    )) as WarriorRecordResults;
+    return results.length === 0 ? null : results[0];
   }
+
   static async listAll(): Promise<WarriorRecord[]> {
-    return [];
+    const [results] = (await pool.execute(
+      'SELECT * FROM `warriors`'
+    )) as WarriorRecordResults;
+    return results.map((obj) => new WarriorRecord(obj));
   }
+
   static async listTop(topCount: number): Promise<WarriorRecord[]> {
-    return [];
+    const [results] = (await pool.execute(
+      'SELECT * FROM `warriors` ORDER BY `wins` DESC LIMIT :topCount',
+      {
+        topCount,
+      }
+    )) as WarriorRecordResults;
+
+    return results.map((obj) => new WarriorRecord(obj));
   }
 }
