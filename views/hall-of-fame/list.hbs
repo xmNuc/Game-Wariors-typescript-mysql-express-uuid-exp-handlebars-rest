@@ -1,8 +1,24 @@
 <h2>Hall of fame</h2>
 <table>
-  <tr>
-    <td>
+  <thead>
+    <th>#</th>
+    <th>Wins</th>
+    <th>Name</th>
+  </thead>
+  <tbody>
+    {{#each warriors}}
+      <tr>
+        <th>
+          {{this.place}}
+        </th>
+        <td>
+          {{this.warrior.wins}}
+        </td>
+        <td>
+          {{this.warrior.name}}
+        </td>
+      </tr>
 
-    </td>
-  </tr>
+    {{/each}}
+  </tbody>
 </table>
