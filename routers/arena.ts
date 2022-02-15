@@ -31,6 +31,8 @@ arenaRouter
 
     const { log, winner } = fight(warrior1, warrior2);
 
+    // console.log(log);
+
     winner.wins++;
     await winner.update();
 
