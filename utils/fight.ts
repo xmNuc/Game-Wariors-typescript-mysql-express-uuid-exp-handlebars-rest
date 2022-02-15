@@ -1,9 +1,12 @@
 import { WarriorRecord } from '../records/warrior.record';
 
-export const Fight = (
+export const fight = (
   warrior1: WarriorRecord,
   warrior2: WarriorRecord
-): string[] => {
+): {
+  log: string[];
+  winner: WarriorRecord;
+} => {
   const warrior1Obj = {
     hp: warrior1.stamina * 10,
     dp: warrior1.defence,
@@ -35,5 +38,7 @@ export const Fight = (
     [attacker, defender] = [defender, attacker];
   } while (defender.hp > 0);
 
-  return log;
+  const winner = defender.warrior;
+
+  return { log, winner };
 };
