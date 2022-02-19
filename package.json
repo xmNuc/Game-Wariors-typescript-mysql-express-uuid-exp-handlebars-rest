@@ -4,11 +4,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "ts-node index.ts",
-    "start2": "tsnd index.ts",
-    "start3": "node dist/index.js"
-  },
-  "engines": {
-    "node": "16.13.2"
+    "start2": "tsnd index.ts"
   },
   "keywords": [],
   "author": "",
