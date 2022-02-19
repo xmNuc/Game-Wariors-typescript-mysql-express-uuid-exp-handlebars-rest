@@ -1,7 +1,7 @@
 {
   "name": "final_typescript_mega_wariors",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start": "ts-node index.ts",
     "start1": "ts-node index.ts",
