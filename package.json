@@ -1,15 +1,11 @@
 {
   "name": "final_typescript_mega_wariors",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start1": "ts-node index.ts",
+    "start": "ts-node index.ts",
     "start2": "tsnd index.ts",
-    "start": "node dist/index.js",
-    "postinstall": "tsc",
-    "watch-node": "nodemon dist/index.js",
-    "watch-ts": "tsc -w",
-    "start:dev": "ts-node-dev index.ts"
+    "start3": "node dist/index.js"
   },
   "engines": {
     "node": "16.13.2"
@@ -28,13 +24,12 @@
     "express-handlebars": "^6.0.2",
     "method-override": "^3.0.0",
     "mysql2": "^2.3.3",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
+    "uuid": "^8.3.2",
     "typescript": "^4.5.5",
     "ts-node": "^10.5.0",
     "ts-node-dev": "^1.1.8"
   },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xmNuc/Game-Wariors-typescript-mysql-express-uuid-exp-handlebars-rest.git"
