@@ -10,8 +10,10 @@ import { hallOfFameRouter } from './routers/hall-of-fame';
 import { WarriorRecord } from './records/warrior.record';
 import './utils/db';
 import { handleError } from './utils/errors';
+import 'dotenv/config';
 
 const app = express();
+const port: string | number = process.env.LOCAL_PORT || 3000;
 
 app.use(methodOverride('_method'));
 app.use(
@@ -36,6 +38,6 @@ app.use('/hall-of-fame', hallOfFameRouter);
 
 app.use(handleError);
 
-app.listen(3000, 'localhost', () => {
-  console.log('Server has started on http://localhost:3000');
+app.listen(port, () => {
+  console.log(`Server has started on http://localhost:${port}`);
 });

@@ -47,7 +47,7 @@ export class WarriorRecord {
     this.agility = agility;
     this.wins = wins ?? 0;
   }
-
+  
   async insert(): Promise<string> {
     await pool.execute(
       "INSERT INTO `warriors`(`id`,`name`,`power`,`defence`,`stamina`,`agility`,`wins`) VALUES(:id, :name, :power, :defence, :stamina, :agility, :wins)",
