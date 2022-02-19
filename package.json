@@ -6,7 +6,7 @@
     "start1": "ts-node index.ts",
     "start2": "tsnd index.ts",
     "start": "node dist/index.js",
-    "postinstall": "tsc && mv -i -v public dist/ ",
+    "postinstall": "tsc",
     "watch-node": "nodemon dist/index.js",
     "watch-ts": "tsc -w",
     "start:dev": "ts-node-dev index.ts"
