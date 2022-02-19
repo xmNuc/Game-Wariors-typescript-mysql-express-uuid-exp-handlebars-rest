@@ -14,6 +14,7 @@ import 'dotenv/config';
 
 const app = express();
 const port: string | number = process.env.LOCAL_PORT || 3000;
+// const port: Number = parseInt(process.env.LOCAL_PORT as string) || 3000;
 
 app.use(methodOverride('_method'));
 app.use(
