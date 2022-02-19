@@ -12,6 +12,9 @@
     "watch-ts": "tsc -w",
     "start:dev": "ts-node-dev index.ts"
   },
+  "engines": {
+    "node": "16.10.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
