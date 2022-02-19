@@ -1,0 +1,44 @@
+@font-face {
+  font-family: norse;
+  src: url(../font/Norse-KaWl.otf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 50%;
+  height: 50%;
+  margin: 30px auto;
+
+  font-family: norse;
+  letter-spacing: 3px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(136, 27, 132, 1) 14%,
+    rgba(0, 105, 177, 1) 100%
+  );
+  color: beige;
+  text-align: center;
+  line-height: 5vh;
+}
+
+.link {
+  color: #ff0000;
+} /* CSS link color (red) */
+
+.link:hover {
+  color: #00ff00;
+} /* CSS link hover (green) */
+
+.hall-of-fame {
+  margin: 60px auto;
+  line-height: 5vh;
+  font-size: 40px;
+  border-collapse: separate;
+  border-spacing: 40px 10px;
+}
