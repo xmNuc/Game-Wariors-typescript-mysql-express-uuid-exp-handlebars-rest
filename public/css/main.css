@@ -35,7 +35,10 @@ body {
 /* CSS link hover (green) */
 .hall-wrap {
   position: relative;
-  height: 145%;
+}
+
+.hall-wrap tr:hover {
+  color: gold;
 }
 
 .hall-wrap::after {
@@ -44,9 +47,9 @@ body {
   top: -20;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 72vh;
   background-image: url(../pics/gioele-fazzeri-cEfbNxNqZ8g-unsplash.jpg);
-  background-size: 70%;
+  background-size: 36%;
   background-repeat: no-repeat;
   background-position: center;
   -webkit-filter: sepia(100%);
@@ -68,11 +71,9 @@ body {
   border-collapse: separate;
   border-spacing: 40px 10px;
   border-radius: 20px;
-  border: 1px solid white;
-}
-
-.hall-wrap tr:hover {
-  color: gold;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+  cursor: cell;
 }
 
 .add-form {
@@ -156,5 +157,55 @@ input:hover {
 
 .submit:active {
   background: rgba(255, 255, 255, 0.2);
+}
+
+.arena-form {
+  position: absolute;
+  -webkit-transform: translate(-50%, -47%);
+          transform: translate(-50%, -47%);
+  top: 40%;
+  left: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 2em;
+  height: 400px;
+  width: 500px;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  -webkit-box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+          box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.arena-choose {
+  cursor: pointer;
+  background: transparent;
+  width: 200px;
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5000px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.arena-choose:hover {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
 }
 /*# sourceMappingURL=main.css.map */
