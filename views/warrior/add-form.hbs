@@ -1,26 +1,28 @@
-<h2>
-  Register new warrior
-</h2>
-<form action='/warrior' method='post'>
-  <label>
-    Name:<br />
-    <input type='text' name='name' minlength='3' maxlength='25' /><br />
-  </label>
-  <label>
-    Strength<br />
-    <input type='number' name='power' value='1' min='1' max='7' /><br />
-  </label>
-  <label>
-    Defence<br />
-    <input type='number' name='defence' value='1' min='1' max='7' /><br />
-  </label>
-  <label>
-    Stamina<br />
-    <input type='number' name='stamina' value='1' min='1' max='7' /><br />
-  </label>
-  <label>
-    Agility<br />
-    <input type='number' name='agility' value='1' min='1' max='7' /><br />
-  </label>
-  <button type='submit'>Submit</button>
-</form>
+<div class='add-form'>
+  <h2>
+    Register new warrior
+  </h2>
+  <form action='/warrior' method='post'>
+    <label>
+      Name:<br />
+      <input type='text' name='name' minlength='3' maxlength='25' /><br />
+    </label>
+    <label>
+      Strength<br />
+      <input type='number' name='power' value='1' min='1' max='7' /><br />
+    </label>
+    <label>
+      Defence<br />
+      <input type='number' name='defence' value='1' min='1' max='7' /><br />
+    </label>
+    <label>
+      Stamina<br />
+      <input type='number' name='stamina' value='1' min='1' max='7' /><br />
+    </label>
+    <label>
+      Agility<br />
+      <input type='number' name='agility' value='1' min='1' max='7' /><br />
+    </label>
+    <button class='submit' type='submit'>Submit</button>
+  </form>
+</div>
