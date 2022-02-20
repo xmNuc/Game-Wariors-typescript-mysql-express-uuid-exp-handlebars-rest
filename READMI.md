@@ -1,3 +1,6 @@
+Homepage: https://warriorsarenabynuc.herokuapp.com/
+
+
 Plan Wariors v1:
 
 1. At the beginning, everyone has as many hit points (HP) as their toughness \* 10. Everyone has as many shields (DP) at the beginning equal to their defense.
