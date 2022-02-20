@@ -1,24 +1,28 @@
-<h2>Hall of fame</h2>
-<table class='hall-of-fame'>
-  <thead>
-    <th>#</th>
-    <th>Wins</th>
-    <th>Name</th>
-  </thead>
-  <tbody>
-    {{#each warriors}}
-      <tr>
-        <th>
-          {{this.place}}
-        </th>
-        <td>
-          {{this.warrior.wins}}
-        </td>
-        <td>
-          {{this.warrior.name}}
-        </td>
-      </tr>
+<div class='hall-wrap'>
+  <h2>Hall of fame</h2>
+  <table class='hall-of-fame'>
+    <div>
+      <thead>
+        <th>#</th>
+        <th>Wins</th>
+        <th>Name</th>
+      </thead>
+      <tbody>
+        {{#each warriors}}
+          <tr>
+            <th>
+              {{this.place}}
+            </th>
+            <td>
+              {{this.warrior.wins}}
+            </td>
+            <td>
+              {{this.warrior.name}}
+            </td>
+          </tr>
 
-    {{/each}}
-  </tbody>
-</table>
+        {{/each}}
+      </tbody>
+    </div>
+  </table>
+</div>
