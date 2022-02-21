@@ -10,14 +10,19 @@
           box-sizing: border-box;
 }
 
+html {
+  min-height: 2vh;
+}
+
 body {
+  min-height: 100vh;
   margin: 30px auto;
   font-family: norse;
-  font-size: 23px;
+  font-size: 1.4rem;
   letter-spacing: 3px;
   background: linear-gradient(25deg, #58522f 0%, #3b637e 100%);
   background-repeat: no-repeat;
-  color: beige;
+  color: white;
   text-align: center;
   line-height: 5vh;
 }
@@ -64,6 +69,11 @@ label:hover {
 }
 
 .hall-of-fame {
+  position: absolute;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  top: 30%;
+  left: 50%;
   margin: 60px auto;
   line-height: 5vh;
   font-size: 40px;
@@ -113,7 +123,7 @@ input {
           backdrop-filter: blur(5px);
   -webkit-box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
           box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: white;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -233,5 +243,48 @@ button.submit:active {
 option {
   font-family: norse;
   font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (orientation: portrait) and (min-width: 360px) {
+  html {
+    margin: 0;
+  }
+  body {
+    font-size: 1.1rem;
+    padding: 0;
+  }
+  .add-form {
+    top: 50%;
+    height: 440px;
+    -webkit-transform: translate(-50%, -70%);
+            transform: translate(-50%, -70%);
+    padding: 0;
+  }
+  .arena-form {
+    padding: 0;
+  }
+  input {
+    padding: 0;
+    margin: 0;
+  }
+  .arena-choose {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  .arena-select {
+    margin: 15px;
+  }
+  .hall-wrap h2 {
+    margin: 5px;
+    font-size: 1.5rem;
+  }
+  .hall-of-fame {
+    -webkit-transform: translate(-50%, 8%);
+            transform: translate(-50%, 8%);
+    margin: 0;
+    font-size: 1rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
