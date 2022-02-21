@@ -2,7 +2,25 @@
   font-family: norse;
   src: url(../font/Norse-KaWl.otf);
 }
-$white: rgba(255, 255, 255, 0.3);
+$first_color: rgba(255, 255, 255, 0.3);
+$select-color: rgba(240, 85, 85, 0.3);
+$select-background: rgba(47, 89, 55, 0.3);
+$hover-color: gold;
+$hover-color-light: rgb(255, 242, 168);
+$glow: 0 0 10px rgb(249, 255, 233), 0 0 20px #fff, 0 0 30px #edee8a,
+  0 0 40px #daf369;
+$bg-gradient: linear-gradient(45deg, #8d2f42, #3f5efb);
+$bg-gradient2: linear-gradient(
+  25deg,
+  rgba(175, 154, 30, 1) 0%,
+  rgba(43, 152, 227, 1) 100%
+);
+$bg-gradient3: linear-gradient(
+  25deg,
+  rgba(88, 82, 47, 1) 0%,
+  rgba(59, 99, 126, 1) 100%
+);
+$trans: all 0.2s ease-in-out;
 
 * {
   margin: 0;
@@ -15,45 +33,58 @@ body {
   font-family: norse;
   font-size: 23px;
   letter-spacing: 3px;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(45deg, #8d2f42, #3f5efb);
+  background: $bg-gradient3;
   background-repeat: no-repeat;
   color: beige;
   text-align: center;
   line-height: 5vh;
 }
+h2:hover {
+  color: $hover-color;
+  text-shadow: $glow;
+  transition: $trans;
+}
+label:hover {
+  color: $hover-color-light;
+  text-shadow: $glow;
+  transition: $trans;
+}
 
 .link {
-  color: #ff0000;
-} /* CSS link color (red) */
+  color: $hover-color;
+}
 
 .link:hover {
-  color: #00ff00;
-} /* CSS link hover (green) */
+  color: $hover-color-light;
+  text-shadow: $glow;
+  transition: $trans;
+}
 
 .hall-wrap {
   position: relative;
 }
 .hall-wrap tr:hover {
-  color: gold;
+  color: $hover-color;
+  text-shadow: $glow;
+  transition: $trans;
 }
 
-.hall-wrap::after {
-  content: '';
-  position: absolute;
-  top: -20;
-  left: 0;
-  width: 100%;
-  height: 72vh;
-  background-image: url(../pics/gioele-fazzeri-cEfbNxNqZ8g-unsplash.jpg);
-  background-size: 36%;
-  background-repeat: no-repeat;
-  background-position: center;
-  filter: sepia(100%);
-  filter: brightness(30%);
-  z-index: -1;
-  // border: 2px solid white;
-}
+// .hall-wrap::after {
+//   content: '';
+//   position: absolute;
+//   top: -20;
+//   left: 0;
+//   width: 100%;
+//   height: 72vh;
+//   background-image: url(../pics/gioele-fazzeri-cEfbNxNqZ8g-unsplash.jpg);
+//   background-size: 36%;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   filter: sepia(100%);
+//   filter: brightness(30%);
+//   z-index: -1;
+//   // border: 2px solid white;
+// }
 .hall-wrap h2 {
   margin-top: 30px;
   font-size: 50px;
@@ -66,8 +97,8 @@ body {
   border-collapse: separate;
   border-spacing: 40px 10px;
   border-radius: 20px;
-  border: 1px solid $white;
-  background: $white;
+  border: 1px solid $first_color;
+  background: $first_color;
   cursor: cell;
 }
 
@@ -76,13 +107,13 @@ body {
   transform: translate(-50%, -47%);
   top: 40%;
   left: 50%;
-  background: $white;
-  padding: 2em;
-  height: 750px;
+  background: $first_color;
+  padding: 1em;
+  height: 650px;
   width: 500px;
   border-radius: 20px;
-  border-left: 1px solid $white;
-  border-top: 1px solid $white;
+  border-left: 1px solid $first_color;
+  border-top: 1px solid $first_color;
   backdrop-filter: blur(10px);
   box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -92,38 +123,53 @@ body {
 
 input {
   background: transparent;
-  width: 200px;
-  padding: 1em;
-  margin-bottom: 2em;
+  width: 260px;
+  padding: 0.2em;
+  margin-bottom: 0.6rem;
+  text-align: center;
+  font-size: 1.5rem;
   border: none;
-  border-left: 1px solid $white;
-  border-top: 1px solid $white;
+  border-left: 1px solid $first_color;
+  border-top: 1px solid $first_color;
   border-radius: 5000px;
   backdrop-filter: blur(5px);
   box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
   color: #fff;
-  font-weight: 500;
   transition: all 0.2s ease-in-out;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   &:hover {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
   }
+  &[type='number'] {
+    width: 130px;
+  }
+  &[type='number']::-webkit-inner-spin-button,
+  [type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: inner-spin-button;
+    transform: scale(1.5);
+    position: absolute;
+    top: 0;
+    right: 6px;
+    height: 100%;
+  }
 }
 
-.submit {
+button.submit {
   background: transparent;
   width: 200px;
-  padding: 1em;
-  margin-bottom: 2em;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.6rem;
   border: none;
-  border-left: 1px solid $white;
-  border-top: 1px solid $white;
-  border-radius: 5000px;
+  border-left: 1px solid $first_color;
+  border-top: 1px solid $first_color;
+  font-family: norse;
+  font-size: 1.8rem;
+  border-radius: 50px;
   backdrop-filter: blur(5px);
   box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
   color: #fff;
-  font-weight: 500;
   transition: all 0.2s ease-in-out;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   &:hover {
@@ -131,44 +177,44 @@ input {
     box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
-  margin-top: 10px;
   width: 150px;
-  font-size: 1rem;
   &:active {
     background: rgba(255, 255, 255, 0.2);
   }
 }
 
 .arena-form {
-  position: absolute;
+  position: relative;
+  display: block;
   transform: translate(-50%, -47%);
   top: 30%;
   left: 50%;
-  background: $white;
-  padding: 2em;
-  height: 400px;
-  width: 500px;
+  background: $first_color;
+  height: 350px;
+  width: 700px;
   border-radius: 20px;
-  border-left: 1px solid $white;
-  border-top: 1px solid $white;
+  border-left: 1px solid $first_color;
+  border-top: 1px solid $first_color;
   backdrop-filter: blur(10px);
   box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
   text-align: center;
-  position: relative;
   transition: all 0.2s ease-in-out;
 }
-
-select {
+.arena-choose {
+  display: inline-block;
+}
+.arena-select {
   cursor: pointer;
   list-style: none;
   background: transparent;
-  width: 200px;
-  padding: 1em;
-  margin-bottom: 2em;
+  width: 280px;
+  padding: 1rem;
+  margin: 2rem 0.5rem 2rem 0.5rem;
   border: none;
-  font-size: 16px;
-  border-left: 1px solid $white;
-  border-top: 1px solid $white;
+  font-family: norse;
+  font-size: 1.5rem;
+  border-left: 1px solid $first_color;
+  border-top: 1px solid $first_color;
   border-radius: 5000px;
   backdrop-filter: blur(5px);
   box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
@@ -180,4 +226,10 @@ select {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
   }
+}
+
+option {
+  font-family: norse;
+  font-size: 1.5rem;
+  background-color: $color;
 }
