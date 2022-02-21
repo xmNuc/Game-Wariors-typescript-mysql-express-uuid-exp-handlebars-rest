@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 1vh;
   margin: 30px auto;
   font-family: norse;
   font-size: 1.4rem;
@@ -289,5 +289,40 @@ option {
     padding: 0;
     font-size: 1rem;
     line-height: 1rem;
+  }
+}
+@media (min-width: 860px) {
+  body {
+    font-size: 1.3rem;
+    padding: 0;
+  }
+  .hall-wrap h2 {
+    margin: 5px;
+    font-size: 1.8rem;
+  }
+  .hall-of-fame {
+    transform: translate(-50%, 8%);
+    margin-top: 20px;
+    padding: 0;
+    font-size: 1.4rem;
+    line-height: 1rem;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 15px auto;
+  }
+  .hall-wrap h2 {
+    margin: 15px;
+    font-size: 1.8rem;
+  }
+  .hall-of-fame {
+    transform: translate(-50%, 8%);
+    margin-top: 30px;
+    padding: 0;
+    font-size: 2rem;
+    line-height: 1.8rem;
   }
 }
