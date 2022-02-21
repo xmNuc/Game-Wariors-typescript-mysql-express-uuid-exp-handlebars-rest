@@ -249,20 +249,24 @@ option {
 @media (orientation: portrait) and (min-width: 360px) {
   html {
     margin: 0;
+    overflow: hidden;
   }
   body {
     font-size: 1.1rem;
     padding: 0;
+    overflow: hidden;
   }
   .add-form {
     top: 50%;
     height: 440px;
+    width: 340px;
     -webkit-transform: translate(-50%, -70%);
             transform: translate(-50%, -70%);
     padding: 0;
   }
   .arena-form {
     padding: 0;
+    width: 340px;
   }
   input {
     padding: 0;
@@ -284,7 +288,9 @@ option {
     -webkit-transform: translate(-50%, 8%);
             transform: translate(-50%, 8%);
     margin: 0;
+    padding: 0;
     font-size: 1rem;
+    line-height: 1rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
